@@ -3,7 +3,7 @@ From: debian:buster-slim
 
 %labels
   Maintainer tejas.sevak@plantandfood.co.nz
-  Version 1.4.3
+  Version 1.4.13
 
 %post
   cd /opt
@@ -11,8 +11,8 @@ From: debian:buster-slim
   echo 'APT::Get::Assume-Yes "true";' | tee -a /etc/apt/apt.conf.d/00Do-not-ask
   apt-get update && apt-get install binutils clang cmake curl make
 
-  VERSION=1.4.3
-  ORG=isovic
+  VERSION=1.4.13
+  ORG=lbcb-sci
   curl -LO https://github.com/${ORG}/racon/releases/download/${VERSION}/racon-v${VERSION}.tar.gz && \
     tar -xvf racon-v${VERSION}.tar.gz && cd racon-v${VERSION} && mkdir build && cd build
   CC=clang CXX=clang++ cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/opt/local -DCMAKE_CXX_FLAGS="-mno-avx2 -mno-avx" .. && \
